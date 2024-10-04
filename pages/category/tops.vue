@@ -1,6 +1,6 @@
 <script setup>
 import ProductCard from '~/components/ProductCard.vue';
-const { data, pending } = useFetch("/api/products?category=all")
+const { data, pending } = useFetch("/api/products?category=tops")
 </script>
 
 
@@ -11,7 +11,6 @@ const { data, pending } = useFetch("/api/products?category=all")
             <h1 class="largeheading">Tops</h1>
         </div>
         <div class="w-dyn-list">
-            <p v-if="pending">Please wait...</p>
             <div v-if="data?.data?.length > 0" role="list" class="w-dyn-items w-row">
                 <div v-for="item in data.data" :key="item?.id">
                     <ProductCard :item="item" />

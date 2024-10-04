@@ -39,7 +39,7 @@ const navLinks = [
     </NuxtLink>
     <nav role="navigation" class="nav-menu w-nav-menu">
       <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-link w-nav-link"
-        :class="{ 'w--current': $route.path === link.path }">
+        :class="{ 'w--current': $route.path === link.path }" @click="$router.push(link.path).then(() => $router.go())">
         {{ link.name }}
       </NuxtLink>
     </nav>
