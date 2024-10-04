@@ -39,7 +39,7 @@ const navLinks = [
     </NuxtLink>
     <nav role="navigation" class="nav-menu w-nav-menu">
       <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-link w-nav-link"
-        :class="{ 'w--current': $route.path === link.path }" @click="$router.push(link.path).then(() => $router.go())">
+        :class="{ 'w--current': $route.path === link.path }">
         {{ link.name }}
       </NuxtLink>
     </nav>
@@ -161,9 +161,10 @@ const navLinks = [
       <nav role="navigation" class="nav-menu w-nav-menu"
         :style="{ transition: 'all, transform 400ms', transform: 'translateY(0px) translateX(0px)' }"
         data-nav-menu-open="">
-        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-link w-nav-link w--nav-link-open"
-          :class="{ 'w--current': $route.path === link.path }">
-          {{ link.name }}
+        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path"
+          class="nav-link w-nav-link w--current w--nav-link-open" :class="{ 'w--current': $route.path === link.path }">
+          <p @click="toggleMenu"> {{ link.name }}</p>
+
         </NuxtLink>
       </nav>
     </div>
