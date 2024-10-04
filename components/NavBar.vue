@@ -161,7 +161,7 @@ const navLinks = [
       <nav role="navigation" class="nav-menu w-nav-menu"
         :style="{ transition: 'all, transform 400ms', transform: 'translateY(0px) translateX(0px)' }"
         data-nav-menu-open="">
-        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-link w-nav-link"
+        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-link w-nav-link w--nav-link-open"
           :class="{ 'w--current': $route.path === link.path }">
           {{ link.name }}
         </NuxtLink>
