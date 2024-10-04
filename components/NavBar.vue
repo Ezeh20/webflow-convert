@@ -19,21 +19,29 @@ watch(width, (newWidth) => {
     isMenuOpen.value = false;
   }
 });
+
+const navLinks = [
+  { name: 'Home', path: '/' },
+  { name: 'Tops', path: '/category/tops' },
+  { name: 'Bottoms', path: '/category/bottoms' },
+  { name: 'Accessories', path: '/category/socks-underwear' },
+  { name: 'Contact', path: '/contact' }
+];
 </script>
+
 
 <template>
   <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease" data-easing2="ease"
     role="banner" class="navbar w-nav">
-    <a href="index.html" aria-current="page" class="brand w-nav-brand w--current">
+    <NuxtLink to="/" class="brand w-nav-brand w--current">
       <h1 class="logo">MDLR</h1>
       <h2 class="logo subhead">Online Store</h2>
-    </a>
+    </NuxtLink>
     <nav role="navigation" class="nav-menu w-nav-menu">
-      <a href="index.html" aria-current="page" class="nav-link w-nav-link w--current">Home</a>
-      <a href="https://mdlr-shop.webflow.io/category/tops" class="nav-link w-nav-link">Tops</a>
-      <a href="https://mdlr-shop.webflow.io/category/bottoms" class="nav-link w-nav-link">Bottoms</a>
-      <a href="https://mdlr-shop.webflow.io/category/socks-underwear" class="nav-link w-nav-link">Accessories</a>
-      <a href="#" class="nav-link w-nav-link">Contact</a>
+      <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-link w-nav-link"
+        :class="{ 'w--current': $route.path === link.path }">
+        {{ link.name }}
+      </NuxtLink>
     </nav>
     <div data-node-type="commerce-cart-wrapper" data-open-product="" data-wf-cart-type="rightSidebar"
       data-wf-cart-query="" data-wf-page-link-href-prefix="" class="w-commerce-commercecartwrapper cart-2">
@@ -153,12 +161,10 @@ watch(width, (newWidth) => {
       <nav role="navigation" class="nav-menu w-nav-menu"
         :style="{ transition: 'all, transform 400ms', transform: 'translateY(0px) translateX(0px)' }"
         data-nav-menu-open="">
-        <a href="index.html" aria-current="page" class="nav-link w-nav-link w--current w--nav-link-open">Home</a>
-        <a href="https://mdlr-shop.webflow.io/category/tops" class="nav-link w-nav-link w--nav-link-open">Tops</a>
-        <a href="https://mdlr-shop.webflow.io/category/bottoms" class="nav-link w-nav-link w--nav-link-open">Bottoms</a>
-        <a href="https://mdlr-shop.webflow.io/category/socks-underwear"
-          class="nav-link w-nav-link w--nav-link-open">Accessories</a>
-        <a href="#" class="nav-link w-nav-link w--nav-link-open">Contact</a>
+        <NuxtLink v-for="link in navLinks" :key="link.name" :to="link.path" class="nav-link w-nav-link"
+          :class="{ 'w--current': $route.path === link.path }">
+          {{ link.name }}
+        </NuxtLink>
       </nav>
     </div>
   </div>
