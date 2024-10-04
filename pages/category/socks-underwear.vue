@@ -1,6 +1,9 @@
 <script setup>
 import ProductCard from '~/components/ProductCard.vue';
-const { data } = await useLazyFetch("/api/products?category=accessories")
+
+const { data } = await useAsyncData('socks-underwear', () => 
+  $fetch("/api/products?category=accessories")
+)
 </script>
 
 
@@ -15,8 +18,10 @@ const { data } = await useLazyFetch("/api/products?category=accessories")
                     <ProductCard :item="item" />
                 </div>
             </div>
-            <div v-else class="w-dyn-empty">
-                <div>No items found.</div>
+            <div v-else>
+                <div class="w-dyn-empty">
+                    <div>No items found.</div>
+                </div>
             </div>
         </div>
     </main>

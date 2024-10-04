@@ -2,7 +2,7 @@
 import ProductCard from '~/components/ProductCard.vue';
 
 
-const { data, pending, error } = await useLazyFetch("/api/products?category=all")
+const { data, pending, error } = useLazyFetch("/api/products?category=all")
 </script>
 
 <template>
