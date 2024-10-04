@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
 		default:
 			throw createError({
 				statusCode: 404,
-				statusMessage: "product not found",
+				statusMessage: "Category not found",
 			});
 	}
 });
