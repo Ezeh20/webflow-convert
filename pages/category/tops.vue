@@ -1,6 +1,6 @@
 <script setup>
 import ProductCard from '~/components/ProductCard.vue';
-const { data, pending } = useLazyFetch("/api/products?category=tops")
+const { data, pending } = useFetch("/api/products?category=tops")
 </script>
 
 
