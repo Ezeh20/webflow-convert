@@ -1,7 +1,6 @@
 <script setup>
 const route = useRoute()
 const { id } = route.params
-
 const { data } = await useAsyncData("product", () => $fetch(`/api/product?id=${id}`))
 </script>
 

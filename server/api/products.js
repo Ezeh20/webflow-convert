@@ -5,8 +5,10 @@ export default defineEventHandler(async (event) => {
 
 	switch (category) {
 		case "all":
+			const allProducts = [...data.bottoms, ...data.tops, ...data.accessories];
+			const shuffledProducts = allProducts.sort(() => Math.random() - 0.5);
 			return {
-				data: [...data.bottoms, ...data.tops, ...data.accessories],
+				data: shuffledProducts,
 				status: 200,
 			};
 		case "tops":
