@@ -1,4 +1,4 @@
-import { data } from "./data";
+import { data } from "./data.js";
 
 export default defineEventHandler(async (event) => {
 	const { category } = getQuery(event);
