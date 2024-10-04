@@ -1,6 +1,6 @@
 <script setup>
 import ProductCard from '~/components/ProductCard.vue';
-const { data, pending } = useFetch("/api/products?category=tops")
+const { data } = await useAsyncData("tops", () => $fetch("/api/products?category=tops"))
 </script>
 
 
