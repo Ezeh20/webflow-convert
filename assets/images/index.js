@@ -1,3 +1,4 @@
-import cart from './bx-cart.svg'
+import cart from "./bx-cart.svg";
+import lucienShot from "./Lucien.jpeg";
 
-export {cart}
+export { cart, lucienShot };
