@@ -1,6 +1,6 @@
 <script setup>
 import ProductCard from '~/components/ProductCard.vue';
-const { data } = await useFetch("/api/products?category=tops")
+const { data } = await useLazyFetch("/api/products?category=tops")
 </script>
 
 
